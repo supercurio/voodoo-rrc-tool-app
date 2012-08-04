@@ -135,10 +135,16 @@ public class NwkInfo {
         db.close();
     }
 
-    public void apply() throws IOException {
+    public boolean apply() throws IOException {
         writeCachedDb();
         copyFileAsRoot(App.context.getCacheDir() + "/" + DB_FILENAME, mDatabaseFullPath);
-        Utils.killRild();
+
+        if (Utils.requireRebootDontKillRild())
+            return true;
+        else
+            Utils.killRild();
+
+        return false;
     }
 
     private void cacheTelephonyProvidersDbFile() throws IOException {

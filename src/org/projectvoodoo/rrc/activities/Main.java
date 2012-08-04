@@ -3,6 +3,7 @@ package org.projectvoodoo.rrc.activities;
 
 import java.io.IOException;
 
+import org.projectvoodoo.rrc.App;
 import org.projectvoodoo.rrc.Utils;
 import org.projectvoodoo.rrc.samsung.FdormancyPreferences;
 import org.projectvoodoo.rrc.samsung.NwkInfo;
@@ -174,7 +175,7 @@ public class Main extends Activity implements OnSeekBarChangeListener, OnChecked
         }
     }
 
-    class NwkInfoApplyTask extends AsyncTask<Void, Void, Void> {
+    class NwkInfoApplyTask extends AsyncTask<Void, Void, Boolean> {
 
         @Override
         protected void onPreExecute() {
@@ -182,10 +183,12 @@ public class Main extends Activity implements OnSeekBarChangeListener, OnChecked
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Boolean doInBackground(Void... params) {
+
+            boolean requiresReboot = false;
 
             try {
-                mNwkInfo.apply();
+                requiresReboot = mNwkInfo.apply();
                 Thread.sleep(2000);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -193,11 +196,14 @@ public class Main extends Activity implements OnSeekBarChangeListener, OnChecked
                 e.printStackTrace();
             }
 
-            return null;
+            return requiresReboot;
         }
 
         @Override
-        protected void onPostExecute(Void result) {
+        protected void onPostExecute(Boolean requiresReboot) {
+            if (requiresReboot)
+                Toast.makeText(App.context, R.string.require_reboot, Toast.LENGTH_LONG).show();
+
             mApplyButton.setEnabled(true);
             new NwkInfoReadTask().execute();
         }

@@ -62,9 +62,9 @@ public class Utils {
         return output;
     }
 
-    public static boolean isCompatibleDevice() {
-        for (String deviceNamePattern : App.VALID_BUILD_MODEL)
-            if (Build.MODEL.matches(deviceNamePattern))
+    public static boolean requireRebootDontKillRild() {
+        for (String deviceNamePattern : App.REQUIRE_REBOOT_DONT_KILL_RILD)
+            if (Build.DEVICE.matches(deviceNamePattern))
                 return true;
 
         return false;

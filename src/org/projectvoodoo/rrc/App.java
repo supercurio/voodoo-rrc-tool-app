@@ -6,8 +6,9 @@ import android.content.Context;
 
 public class App extends Application {
 
-    static final String VALID_BUILD_MODEL[] = {
-            "GT-I9300"
+    static final String REQUIRE_REBOOT_DONT_KILL_RILD[] = {
+            "SGH-I997.*",
+            "SCH-I510.*"
     };
 
     public static Context context;
