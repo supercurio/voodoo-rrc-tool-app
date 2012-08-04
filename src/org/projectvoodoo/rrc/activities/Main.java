@@ -219,8 +219,8 @@ public class Main extends Activity implements OnSeekBarChangeListener, OnChecked
         if (progress == 0 && fromUser)
             progress = 1;
 
-        updateFdText();
         mNwkInfo.setTimes(progress, 0);
+        updateFdText();
     }
 
     @Override
