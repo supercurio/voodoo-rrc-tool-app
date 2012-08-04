@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Voodoo RRC Tool</string>
+    <string name="network_unavailable">Radio network not active, quitting.</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Voodoo RRC tool</string>
+    <string name="network_id">Network ID</string>
+    <string name="enable_fd">Enable Fast Dormancy</string>
+    <string name="enable_fd_policy">Enable Fast Dormancy via Policy</string>
+    <string name="network_name">Network Name</string>
+    <string name="apply">Apply!</string>
+    <string name="show_rrc_state">Show Radio states</string>
+    <string name="has_no_dormpolicy">Warning! Fast Dormancy policy is currently not set for your carrier. Default settings are too short: introducing network latency, non-optimal power efficiency and can cause network congestion by signaling overload.</string>
+    <string name="has_dormpolicy">Fast Dormancy timer policy is set for your current carrier.</string>
+    <string name="show_sysdump_tool">Sysdump tool</string>
+    <string name="title_fd_pref">Fast Dormancy per preference</string>
+    <string name="title_fd_policy">Fast Dormancy timers policy</string>
+</resources>
