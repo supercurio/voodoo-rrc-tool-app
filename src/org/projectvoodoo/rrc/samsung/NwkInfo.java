@@ -41,7 +41,7 @@ public class NwkInfo {
     private boolean mInDb;
     private boolean mFdEnabled = true;
 
-    public NwkInfo(int networkId, String networkName) throws IOException {
+    public NwkInfo(int networkId, String networkName) throws Exception {
         cacheTelephonyProvidersDbFile();
 
         SQLiteDatabase db = openDb(false);

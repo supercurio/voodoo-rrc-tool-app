@@ -138,7 +138,7 @@ public class Main extends Activity implements OnSeekBarChangeListener, OnChecked
             gainRoot = Utils.canGetRootPermission();
             try {
                 mNwkInfo = new NwkInfo(mNetworkId, mNetworkName);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
